@@ -71,7 +71,7 @@ For that, turn the following settings to `True` or `False`.
 activate_parameter_study = False  # Change design variable ranges below
 activate_3d_dimensions = True  # 'False' 2D simulations
 activate_plots = False  # 'True': displays trajectories and separation lines
-activate_parabolic_flow = True  # only for 2D, if 'False': 2D averaged flow profile
+activate_parabolic_flow = True  # only for 2D, if 'False': 2D averaged (constant) flow profile
 ```
 ### Parameter studies
 As mentioned, parameter studies are possible. For the studies, the plots are deactivated by default.
@@ -89,11 +89,11 @@ It sweeps through every possible combination, so that total simulation time can 
 
 ***
 ## Abstract of the accompanying publication
-Because of its high selectivity, continuous flow magnetophoresis represents a common technique for actively separating particles within a fluid. The separation system design requires accurately predicting particle behaviour to characterise system performance, typically measured by the separation efficiency. While Finite Element Method (FEM) simulations offer high accuracy, they demand extensive computational resources. Alternatively, quicker results can be achieved with simplified numerical models that integrate analytical descriptions of fluid flow, magnetic fields, and particle movement.
+Continuous flow magnetophoresis represents a common technique for actively separating particles within a fluid. For separation systems design, accurately predicting particle behaviour helps to characterise system performance, typically measured by the separation efficiency (SE). While Finite Element Method (FEM) simulations offer high accuracy, they demand extensive computational resources. Alternatively, results can be achieved more quickly with simplified numerical models that use analytical descriptions of fluid flow, magnetic fields, and particle movement.
 
-In this research, we investigate a millifluidic system that separates magnetic and magnetised particles using magnetophoresis. Therefore, we (1) expand the existing simple simulation models by a three-dimensional model of a rectangular channel, (2) introduce a novel and simple approach to calculat the separation efficiency, and (3) quantify the effects of simulation model simplifications on separation efficiency. We developed a Python-based model using a time-step integration scheme for simulating particle trajectories in three-dimensional space.Our method for estimating separation efficiency considers variations in particle flux through the cross-section, influenced by the flow profile. The results are compared to simple two-dimensional models, and an FEM model in COMSOL.
+In this research, we model a millifluidic system that separates magnetic particles using magnetophoresis. Therefore, we (1) develop a simple numerical model that can simulate continuous flow separation for rectangular channels in two and three dimensions, (2) introduce a novel and simple approach to calculate the SE, and (3) quantify the effects of model assumptions in flow profile and dimensions on SE. Our method for estimating SE considers particle flux variation across the channel's cross-section due to the flow profile. The results are compared to a FEM model developed in COMSOL.
 
-The obtained three-dimensional simulation model is easily adaptable to new inputs, and computes results in seconds, significantly faster than the FEM approach, while deviating less than 2\% from the FEM model. Comparing this model with two-dimensional simulations underscores the significant influence of assumed flow profiles and separation efficiency calculations on model results. Generally, the two-dimensional models tend to overestimate separation efficiency. Consequently, employing a more accurate 3D model for exploring design modifications in the fluidic setup and interpreting experimental outcomes is advisable, while two-dimensional models are suitable for preliminary, extensive parameter studies.
+The obtained three-dimensional simulation model computes results in seconds, around 180 times faster than the FEM approach, while deviating less than 2\% from the FEM model. A comparison of the different two-dimensional and three-dimensional models underscores the significant influence of the flow profile and the SE calculation method on the result. The two dimensional models generally overestimate the SE of up to 15\% due to their lower peak flow velocity. However, using an averaged flow velocity leads to good agreement for high SE due to the overlap of differences in flow profile and SE calculation.
 
 
 ## Citation
@@ -102,7 +102,7 @@ If you use the provided code or find it helpful for your own work, please cite:
 TODO
 ```
 @article{soika2024magnetophoretic,
-  title={A Rapid 3D Simulation Model for Separation Efficiency Estimation of Magnetophoretic Systems},
+  title={Efficient Numerical Modelling of Magnetophoresis in Millifluidic Systems},
   author={Soika, Johannes and Wanninger, Tobias and Muschak, Patrick and Schwaminger, Sebastian and Berensmeier, Sonja and Zimmermann, Markus},
   journal={},
   volume={},
